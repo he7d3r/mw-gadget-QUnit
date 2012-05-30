@@ -1,3 +1,4 @@
+
 /**
  * Helper tool for creating QUnit tests and running them at [[Project:Testar script]]
  * @author: [[User:Helder.wiki]]
@@ -9,7 +10,7 @@
 'use strict';
 
 var	page = mw.util.getParamValue('page'),
-	script, test;
+	script, test, reJS;
 if( mw.config.get('wgNamespaceNumber') === 4
 	&& mw.config.get('wgTitle') === 'Testar script'
 	&& page
@@ -30,7 +31,12 @@ if( mw.config.get('wgNamespaceNumber') === 4
 		.append('<div id="qunit-fixture">test markup, will be hidden</div>');
 	$('#firstHeading').find('span').html('Testes definidos em <a href="' +
 		mw.util.wikiGetlink(page) + '">' + page + '</a>');
-	if( page.match(/^MediaWiki:[^&<>=%]*\.js$/) ){
+	// Based on [[:en:MediaWiki:Common.js/use.js]]
+	reJS = new RegExp( '^(?:MediaWiki:|' +
+		$.escapeRE(
+			mw.config.get('wgFormattedNamespaces')[2] + ':' + mw.config.get( 'wgUserName' )
+		) + '\\/).*\\.js$' );
+	if( reJS.test( page ) ){
 		mw.loader.using('jquery.qunit', function(){
 			importScript(page);
 		});
