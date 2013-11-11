@@ -20,9 +20,9 @@ if( mw.config.get('wgNamespaceNumber') === 4
 	$('#mw-content-text')
 		.empty()
 		.append('<p>Os testes a seguir foram definidos na <a href="' +
-			mw.util.wikiGetlink(page) + '">' + page +
+			mw.util.getUrl(page) + '">' + page +
 			'</a> para garantir o funcionamento do script <a href="' +
-			mw.util.wikiGetlink(script) + '">' + script + '</a>.</p>')
+			mw.util.getUrl(script) + '">' + script + '</a>.</p>')
 		.append('<h2 id="qunit-header">Resultado dos testes QUnit</h2>')
 		.append('<h3 id="qunit-banner"></h3>')
 		.append('<div id="qunit-testrunner-toolbar"></div>')
@@ -30,7 +30,7 @@ if( mw.config.get('wgNamespaceNumber') === 4
 		.append('<ol id="qunit-tests"></ol>')
 		.append('<div id="qunit-fixture">test markup, will be hidden</div>');
 	$('#firstHeading').find('span').html('Testes definidos em <a href="' +
-		mw.util.wikiGetlink(page) + '">' + page + '</a>');
+		mw.util.getUrl(page) + '">' + page + '</a>');
 	// Based on [[:en:MediaWiki:Common.js/use.js]]
 	reJS = new RegExp( '^(?:MediaWiki:|' +
 		$.escapeRE(
@@ -47,7 +47,7 @@ if( mw.config.get('wgNamespaceNumber') === 4
 		script = test.replace(/\.test\.js$/, '.js');
 		mw.util.addPortletLink(
 			'p-cactions',
-			mw.util.wikiGetlink( script ),
+			mw.util.getUrl( script ),
 			'Abrir script',
 			'ca-open-js'
 		);
@@ -55,7 +55,7 @@ if( mw.config.get('wgNamespaceNumber') === 4
 		test = mw.config.get('wgPageName').replace(/\.js$/, '.test.js');
 		mw.util.addPortletLink(
 			'p-cactions',
-			mw.util.wikiGetlink( test ),
+			mw.util.getUrl( test ),
 			'Definir testes QUnit',
 			'ca-def-qunit-tests'
 		);
@@ -63,7 +63,7 @@ if( mw.config.get('wgNamespaceNumber') === 4
 
 	mw.util.addPortletLink(
 		'p-cactions',
-		mw.util.wikiGetlink( 'Project:Testar script' ) + '?page=' +
+		mw.util.getUrl( 'Project:Testar script' ) + '?page=' +
 			mw.util.wikiUrlencode( test ),
 		'Executar testes QUnit',
 		'ca-run-qunit-tests'
