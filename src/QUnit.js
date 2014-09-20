@@ -3,7 +3,6 @@
  * Helper tool for creating QUnit tests and running them at [[Project:Testar script]]
  * @author: Helder (https://github.com/he7d3r)
  * @license: CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0/>
- * @tracking: [[Special:GlobalUsage/User:Helder.wiki/Tools/QUnit.js]] ([[File:User:Helder.wiki/Tools/QUnit.js]])
  */
 /*jslint browser: true, white: true, regexp: true*/
 /*global jQuery, mediaWiki, importScript */
