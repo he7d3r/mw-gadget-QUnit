@@ -31,7 +31,7 @@
 			mw.util.getUrl(page) + '">' + page + '</a>');
 		// Based on [[:en:MediaWiki:Common.js/use.js]]
 		reJS = new RegExp( '^(?:MediaWiki:|' +
-			$.escapeRE(
+			mw.RegExp.escape(
 				mw.config.get('wgFormattedNamespaces')[2] + ':' + mw.config.get( 'wgUserName' )
 			) + '\\/).*\\.js$' );
 		if ( reJS.test( page ) ) {
